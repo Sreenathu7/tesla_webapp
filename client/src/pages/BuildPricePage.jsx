@@ -44,6 +44,7 @@ const BuildPricePage = () => {
         (autopilot ? 12000 : 0);
 
     const handleConfirmOrder = async () => {
+        console.log(user);
         if (!user) {
             navigate('/login');
             return;

@@ -36,7 +36,7 @@ const Navbar = () => {
                     isScrolled ? 'glass py-6 border-b border-white/10' : 'bg-transparent'
                 )}
             >
-                {/* Menu Trigger - Left */}
+
                 <button
                     onClick={() => setIsModelsOpen(true)}
                     className="flex items-center gap-6 group"
@@ -48,7 +48,6 @@ const Navbar = () => {
                     <span className="uppercase font-black text-[11px] tracking-[0.5em] group-hover:text-tesla-red transition-colors">Menu</span>
                 </button>
 
-                {/* Logo - Center */}
                 <Link
                     to="/"
                     className="absolute left-1/2 -translate-x-1/2 text-2xl md:text-4xl font-black tracking-[-0.1em] text-white uppercase"
@@ -85,7 +84,6 @@ const Navbar = () => {
                         className="fixed inset-0 z-[100] bg-black text-white overflow-y-auto"
                     >
                         <div className="min-h-screen flex flex-col container mx-auto px-6 py-8 md:px-12 md:py-12">
-                            {/* Menu Header */}
                             <div className="flex justify-between items-center mb-16 md:mb-24">
                                 <button
                                     onClick={() => setIsModelsOpen(false)}
@@ -94,7 +92,6 @@ const Navbar = () => {
                                     <X size={20} className="group-hover:rotate-90 transition-transform duration-300" />
                                     Close Menu
                                 </button>
-                                {/* Center Logo in Menu - Optional, implies brand continuity */}
                                 <div className="hidden md:block">
                                     <MenuIcon className="text-white/20" size={32} />
                                 </div>

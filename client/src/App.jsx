@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
@@ -7,8 +8,15 @@ import CarDetailsPage from './pages/CarDetailsPage';
 import BuildPricePage from './pages/BuildPricePage';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
+import ContactPage from './pages/ContactPage';
+import { restoreUser } from './store/slices/authSlice';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(restoreUser());
+  }, [dispatch]);
   return (
     <Router>
       <div className="min-h-screen bg-black text-white flex flex-col">
@@ -21,6 +29,7 @@ function App() {
             <Route path="/build" element={<BuildPricePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
       </div>

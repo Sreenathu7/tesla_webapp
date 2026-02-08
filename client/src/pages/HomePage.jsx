@@ -53,6 +53,9 @@ const Counter = ({ value, label, prefix = "", suffix = "" }) => {
 const HomePage = () => {
     const { scrollYProgress } = useScroll();
     const [videoIndex, setVideoIndex] = useState(0);
+    const [email, setEmail] = useState('');
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+    const [emailError, setEmailError] = useState('');
 
     // Reliable background videos
     const backgroundVideos = [
@@ -63,9 +66,30 @@ const HomePage = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setVideoIndex((prev) => (prev + 1) % backgroundVideos.length);
-        }, 8000);
+        }, 3000);
         return () => clearInterval(interval);
     }, []);
+
+    const handleEmailSubmit = (e) => {
+        e.preventDefault();
+        setEmailError('');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email) {
+            setEmailError('Email is required');
+            return;
+        }
+        if (!emailRegex.test(email)) {
+            setEmailError('Please enter a valid email');
+            return;
+        }
+
+        setShowSuccessPopup(true);
+        setEmail('');
+        setTimeout(() => {
+            setShowSuccessPopup(false);
+        }, 4000);
+    };
 
     const slideUp = {
         initial: { opacity: 0, y: 80 },
@@ -84,8 +108,6 @@ const HomePage = () => {
 
     return (
         <div className="bg-[#050505] text-white selection:bg-tesla-red selection:text-white overflow-x-hidden">
-
-            {/* 🎬 HERO SECTION */}
             <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <AnimatePresence mode="wait">
@@ -123,7 +145,7 @@ const HomePage = () => {
                         transition={{ delay: 0.5, duration: 1 }}
                         className="text-xs md:text-sm font-light tracking-[0.8em] text-white/40 mb-14 uppercase"
                     >
-                        Electric performance. Intelligent design. Zero compromise.
+                        Electric performance Intelligent design Zero compromise.
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -150,7 +172,6 @@ const HomePage = () => {
                 </motion.div>
             </section>
 
-            {/* 🚗 MODELS SECTION */}
             <section id="models" className="py-40 px-6 md:px-24">
                 <div className="max-w-7xl mx-auto">
                     <motion.div {...slideUp} className="mb-24 text-center">
@@ -205,7 +226,7 @@ const HomePage = () => {
                 </div>
             </section>
 
-            {/* 🏁 PERFORMANCE SECTION
+            {/* 🏁 PERFORMANCE SECTION */}
             <section className="py-40 bg-black overflow-hidden px-6 md:px-24">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24">
                     <motion.div {...slideUp} className="flex-1">
@@ -232,14 +253,14 @@ const HomePage = () => {
                         <div className="absolute inset-0 bg-gradient-to-tr from-tesla-red/20 via-transparent to-transparent rounded-[4rem]" />
                     </motion.div>
                 </div>
-            </section> */}
+            </section>
 
-            {/* 🌱 SUSTAINABILITY SECTION */}
+
             <section className="py-40 bg-[#0a0a0a] px-6 lg:px-24">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center border border-white/5 rounded-[4rem] overflow-hidden bg-[#050505]">
                     <div className="p-16 md:p-24 flex flex-col justify-center">
                         <Globe className="text-tesla-red mb-12" size={48} />
-                        <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-10 italic">Pure <br />Energy.</h3>
+                        <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-10 italic">Pure <br />Energy</h3>
                         <p className="text-white/40 text-lg font-light leading-relaxed mb-12 border-l-4 border-tesla-red pl-10">
                             We are not just a car company. We are building the energy ecosystem of the future. From solar to transport, zero compromise.
                         </p>
@@ -258,7 +279,7 @@ const HomePage = () => {
             <section className="py-40 bg-black px-6 md:px-24 relative overflow-hidden">
                 <div className="text-center mb-32 relative z-10">
                     <h2 className="text-[10vw] font-black uppercase text-white/[0.03] tracking-tight absolute -bottom-12 left-1/2 -translate-x-1/2 select-none leading-none">Experience</h2>
-                    <h3 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none italic z-10 relative">The Ecosystem.</h3>
+                    <h3 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none italic z-10 relative">The Ecosystem</h3>
                 </div>
                 <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto relative z-10">
                     {[
@@ -276,28 +297,86 @@ const HomePage = () => {
             </section>
 
             {/* 📬 CONTACT / NEWSLETTER SECTION */}
-            <section className="py-40 bg-white text-black px-6">
+            <section className="py-40 bg-white text-black px-6 relative">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h3 className="text-5xl md:text-[8vw] font-black uppercase tracking-tighter leading-[0.85] italic mb-12">Stay <br />Locked In.</h3>
-                    <p className="text-neutral-500 text-lg mb-16 font-light tracking-wide max-w-xl mx-auto">Get the latest performance data and fleet releases delivered to your terminal.</p>
-                    <form className="flex flex-col sm:flex-row gap-4 mb-20" onSubmit={(e) => e.preventDefault()}>
+                    <h3 className="text-5xl md:text-[8vw] font-black uppercase tracking-tighter leading-[0.85] italic mb-12">Stay <br />Locked In</h3>
+                    <p className="text-neutral-500 text-lg mb-16 font-light tracking-wide max-w-xl mx-auto">Get the latest performance data and fleet releases delivered to your terminal</p>
+                    <form className="flex flex-col sm:flex-row gap-4 mb-4" onSubmit={handleEmailSubmit}>
                         <input
                             type="email"
                             placeholder="Terminal Address (Email)"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="flex-1 px-10 py-6 bg-neutral-100 rounded-full text-black outline-none focus:ring-2 focus:ring-tesla-red transition-all font-medium uppercase text-xs tracking-widest"
                         />
-                        <button className="px-16 py-6 bg-black text-white rounded-full font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-neutral-800 transition-all">
+                        <button type="submit" className="px-16 py-6 bg-black text-white rounded-full font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-neutral-800 transition-all">
                             Submit
                         </button>
                     </form>
+                    {emailError && (
+                        <p className="text-red-600 text-sm mb-16">{emailError}</p>
+                    )}
+                    {!emailError && <div className="mb-16"></div>}
                     <div className="flex justify-center gap-16 border-t border-neutral-100 pt-20">
-                        {[Instagram, Twitter, Youtube, Facebook].map((Icon, i) => (
-                            <a key={i} href="#" className="text-neutral-300 hover:text-tesla-red transition-all duration-300">
-                                <Icon size={24} />
-                            </a>
-                        ))}
+                        <a href="https://www.instagram.com/teslamotors/" target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-tesla-red transition-all duration-300">
+                            <Instagram size={24} />
+                        </a>
+                        <a href="https://twitter.com/Tesla" target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-tesla-red transition-all duration-300" title="X (Twitter)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@Tesla" target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-tesla-red transition-all duration-300">
+                            <Youtube size={24} />
+                        </a>
+                        <a href="https://www.facebook.com/tesla" target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-tesla-red transition-all duration-300">
+                            <Facebook size={24} />
+                        </a>
                     </div>
                 </div>
+
+                {/* Success Popup */}
+                <AnimatePresence>
+                    {showSuccessPopup && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+                            onClick={() => setShowSuccessPopup(false)}
+                        >
+                            <motion.div
+                                initial={{ scale: 0.8, y: 20 }}
+                                animate={{ scale: 1, y: 0 }}
+                                exit={{ scale: 0.8, y: 20 }}
+                                transition={{ type: "spring", duration: 0.5 }}
+                                className="bg-white rounded-3xl p-12 max-w-md mx-4 text-center shadow-2xl border border-neutral-200"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <motion.div
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                                    className="w-20 h-20 mx-auto mb-6 bg-green-100 rounded-full flex items-center justify-center"
+                                >
+                                    <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </motion.div>
+                                <h3 className="text-3xl font-black uppercase tracking-tighter mb-4 text-black">Success!</h3>
+                                <p className="text-neutral-600 text-sm mb-8 leading-relaxed">
+                                    Thank you for subscribing. You'll receive the latest Tesla updates and exclusive content in your terminal.
+                                </p>
+                                <button
+                                    onClick={() => setShowSuccessPopup(false)}
+                                    className="px-8 py-3 bg-black text-white rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-neutral-800 transition-all"
+                                >
+                                    Close
+                                </button>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </section>
 
             {/* 🦶 FOOTER */}
@@ -325,7 +404,7 @@ const HomePage = () => {
                         <ul className="space-y-6 text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
                             <li><a href="#" className="hover:text-tesla-red transition-all">About</a></li>
                             <li><a href="#" className="hover:text-tesla-red transition-all">Careers</a></li>
-                            <li><a href="#" className="hover:text-tesla-red transition-all">Contact</a></li>
+                            <li><Link to="/contact" className="hover:text-tesla-red transition-all">Contact</Link></li>
                         </ul>
                     </div>
                     <div>

@@ -11,6 +11,29 @@ export const registerUser = createAsyncThunk('auth/register', async (userData) =
     return response.data;
 });
 
+export const restoreUser = createAsyncThunk('auth/restore', async (_, { rejectWithValue }) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        return rejectWithValue('No token found');
+    }
+
+    try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        return {
+            user: {
+                id: payload.id || payload.userId,
+                email: payload.email,
+                name: payload.name,
+                role: payload.role || 'USER'
+            },
+            token
+        };
+    } catch (error) {
+        localStorage.removeItem('token');
+        return rejectWithValue('Invalid token');
+    }
+});
+
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
@@ -33,19 +56,21 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addMatcher(
-                (action) => [loginUser.pending, registerUser.pending].includes(action.type),
+                (action) => [loginUser.pending, registerUser.pending, restoreUser.pending].includes(action.type),
                 (state) => {
                     state.loading = true;
                     state.error = null;
                 }
             )
             .addMatcher(
-                (action) => [loginUser.fulfilled, registerUser.fulfilled].includes(action.type),
+                (action) => [loginUser.fulfilled, registerUser.fulfilled, restoreUser.fulfilled].includes(action.type),
                 (state, action) => {
                     state.loading = false;
                     state.user = action.payload.user;
                     state.token = action.payload.token;
-                    localStorage.setItem('token', action.payload.token);
+                    if (action.type !== restoreUser.fulfilled.type) {
+                        localStorage.setItem('token', action.payload.token);
+                    }
                 }
             )
             .addMatcher(
@@ -53,6 +78,14 @@ const authSlice = createSlice({
                 (state, action) => {
                     state.loading = false;
                     state.error = action.error.message || 'Authentication failed';
+                }
+            )
+            .addMatcher(
+                (action) => action.type === restoreUser.rejected.type,
+                (state) => {
+                    state.loading = false;
+                    state.user = null;
+                    state.token = null;
                 }
             );
     },
