@@ -1,6 +1,6 @@
-const carService = require('../services/car.service');
+import carService from '../services/car.service.js';
 
-exports.getAllCars = async (req, res) => {
+export const getAllCars = async (req, res) => {
     try {
         const result = await carService.getAllCars(req.query);
         res.json(result);
@@ -9,7 +9,7 @@ exports.getAllCars = async (req, res) => {
     }
 };
 
-exports.getCarBySlug = async (req, res) => {
+export const getCarBySlug = async (req, res) => {
     try {
         const car = await carService.getCarBySlug(req.params.slug);
         if (!car) return res.status(404).json({ error: 'Car not found' });

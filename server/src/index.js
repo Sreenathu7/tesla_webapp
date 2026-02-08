@@ -1,15 +1,22 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-require('dotenv').config();
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import dotenv from 'dotenv';
+
+import authRoutes from './routes/auth.routes.js';
+import carRoutes from './routes/car.routes.js';
+import orderRoutes from './routes/order.routes.js';
+
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(helmet({
-    contentSecurityPolicy: false, // For development ease
+    contentSecurityPolicy: false,
 }));
 app.use(morgan('dev'));
 app.use(express.json());
@@ -18,9 +25,6 @@ app.get('/', (req, res) => {
     res.json({ message: 'Tesla Next-Gen API is running' });
 });
 
-const authRoutes = require('./routes/auth.routes');
-const carRoutes = require('./routes/car.routes');
-const orderRoutes = require('./routes/order.routes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/cars', carRoutes);

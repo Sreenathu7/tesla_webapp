@@ -24,8 +24,8 @@ services:
     ports:
       - "5000:5000"
     environment:
-      DATABASE_URL: postgresql://user:password@db:5432/tesla_db
-      REDIS_URL: redis://redis:6379
+      DATABASE_URL: postgresql://user:Password@123@db:5432/tesla_db
+      # REDIS_URL: redis://redis:6379
       JWT_SECRET: supersecret
     depends_on:
       - db

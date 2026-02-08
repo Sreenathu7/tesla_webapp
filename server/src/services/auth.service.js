@@ -1,6 +1,6 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const prisma = require('../prisma');
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import prisma from '../prisma.js';
 
 class AuthService {
     async register(userData) {
@@ -43,4 +43,4 @@ class AuthService {
     }
 }
 
-module.exports = new AuthService();
+export default new AuthService();

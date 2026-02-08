@@ -1,4 +1,4 @@
-const prisma = require('../prisma');
+import prisma from '../prisma.js';
 
 class OrderService {
     async createOrder(orderData) {
@@ -28,4 +28,4 @@ class OrderService {
     }
 }
 
-module.exports = new OrderService();
+export default new OrderService();

@@ -1,4 +1,4 @@
-const prisma = require('../prisma');
+import prisma from '../prisma.js';
 
 class CarService {
     async getAllCars(query) {
@@ -61,4 +61,4 @@ class CarService {
     }
 }
 
-module.exports = new CarService();
+export default new CarService();

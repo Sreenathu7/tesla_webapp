@@ -153,7 +153,7 @@ const ProductsPage = () => {
                         >
                             Propulsion Systems
                         </motion.span>
-                        <h2 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] mb-8">Ready <br />To Launch.</h2>
+                        <h2 className="text-5xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] mb-8">Ready <br />To Launch</h2>
                         <p className="text-white/30 text-lg uppercase tracking-[0.2em] font-light italic border-l-4 border-tesla-red pl-8">
                             Engineered for Mars. Driven on Earth.
                         </p>

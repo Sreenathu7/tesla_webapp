@@ -155,7 +155,7 @@ const HomePage = () => {
                 <div className="max-w-7xl mx-auto">
                     <motion.div {...slideUp} className="mb-24 text-center">
                         <span className="text-tesla-red font-bold uppercase tracking-[0.6em] text-[10px] mb-4 block italic">The Collection</span>
-                        <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter">Current Fleet.</h2>
+                        <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter">Current Fleet</h2>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -205,14 +205,14 @@ const HomePage = () => {
                 </div>
             </section>
 
-            {/* 🏁 PERFORMANCE SECTION */}
+            {/* 🏁 PERFORMANCE SECTION
             <section className="py-40 bg-black overflow-hidden px-6 md:px-24">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24">
                     <motion.div {...slideUp} className="flex-1">
                         <h2 className="text-tesla-red font-bold uppercase tracking-[0.6em] text-[10px] mb-8">Engineering</h2>
                         <h3 className="text-7xl md:text-[10vw] font-black uppercase tracking-tighter leading-none italic mb-20">
                             1020 <br />
-                            <span className="text-tesla-red">PLAID.</span>
+                            <span className="text-tesla-red">PLAID</span>
                         </h3>
                         <div className="grid grid-cols-2 gap-16">
                             <Counter value="2.1" label="0-100 km/h" suffix="s" />
@@ -232,7 +232,7 @@ const HomePage = () => {
                         <div className="absolute inset-0 bg-gradient-to-tr from-tesla-red/20 via-transparent to-transparent rounded-[4rem]" />
                     </motion.div>
                 </div>
-            </section>
+            </section> */}
 
             {/* 🌱 SUSTAINABILITY SECTION */}
             <section className="py-40 bg-[#0a0a0a] px-6 lg:px-24">
