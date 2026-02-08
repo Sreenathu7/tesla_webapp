@@ -3,28 +3,34 @@ import prisma from '../prisma.js';
 class OrderService {
     async createOrder(orderData) {
         const { userId, configurationJson, totalPrice } = orderData;
-        return await prisma.order.create({
+        const order = await prisma.order.create({
             data: {
                 userId,
                 configurationJson,
                 totalPrice
             }
         });
+        console.log(' created with ID:', order.id);
+        return order;
     }
 
     async getUserOrders(userId) {
-        return await prisma.order.findMany({
+        const orders = await prisma.order.findMany({
             where: { userId: parseInt(userId) },
             orderBy: { createdAt: 'desc' },
             include: { car: true, user: true }
         });
+        console.log(`found ${orders.length} orders for user`);
+        return orders;
     }
 
     async getAllOrders() {
-        return await prisma.order.findMany({
+        const orders = await prisma.order.findMany({
             orderBy: { createdAt: 'desc' },
             include: { car: true, user: true }
         });
+        console.log(`found ${orders.length} total orders`);
+        return orders;
     }
 }
 

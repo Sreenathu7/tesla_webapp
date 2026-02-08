@@ -31,6 +31,7 @@ class CarService {
 
         const orderBy = sortBy ? { [sortBy]: order } : { createdAt: 'desc' };
 
+        console.log('  cars from database with filters:', where);
         const cars = await prisma.car.findMany({
             where,
             orderBy,
@@ -40,6 +41,7 @@ class CarService {
         });
 
         const total = await prisma.car.count({ where });
+        console.log(`found ${total} cars, returning ${cars.length}`);
 
         return {
             cars,
@@ -53,10 +55,16 @@ class CarService {
     }
 
     async getCarBySlug(slug) {
+        console.log('fetching car by slug:', slug);
         const car = await prisma.car.findUnique({
             where: { slug },
             include: { variants: true, colors: true }
         });
+        if (car) {
+            console.log(' Car found:', car.name);
+        } else {
+            console.log(' Car not found for slug:', slug);
+        }
         return car;
     }
 }
