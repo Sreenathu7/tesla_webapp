@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Outfit:wght@100;300;400;700;900&display=swap');
+
+@theme {
+  --color-tesla-red: #E31937;
+  --color-lambo-gold: #D4AF37;
+  --color-carbon-black: #050505;
+  --color-deep-grey: #111111;
+}
+
+body {
+  background-color: var(--color-carbon-black);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: 'Syncopate', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+
+.glass {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tesla-gradient-text {
+  background: linear-gradient(to right, #ffffff, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-tesla-primary {
+  @apply relative overflow-hidden px-12 py-5 bg-white text-black font-bold uppercase tracking-[0.3em] text-[10px] transition-all duration-500;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.btn-tesla-primary:hover {
+  @apply bg-tesla-red text-white -translate-y-1;
+  box-shadow: 0 10px 30px rgba(227, 25, 55, 0.4);
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+}
+
+.carbon-texture {
+  background-image: linear-gradient(45deg, #0a0a0a 25%, transparent 25%),
+    linear-gradient(-45deg, #0a0a0a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #0a0a0a 75%),
+    linear-gradient(-45deg, transparent 75%, #0a0a0a 75%);
+  background-size: 4px 4px;
+  background-color: #050505;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tesla-red);
+}
+
+.letter-spacing-huge {
+  letter-spacing: 0.8em;
+}
+
+.clip-path-slant {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
