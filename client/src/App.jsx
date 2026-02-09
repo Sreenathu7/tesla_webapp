@@ -9,6 +9,7 @@ import BuildPricePage from './pages/BuildPricePage';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 import ContactPage from './pages/ContactPage';
+import ContactDealerPage from './pages/ContactDealerPage';
 import { restoreUser } from './store/slices/authSlice';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact-dealer" element={<ContactDealerPage />} />
           </Routes>
         </main>
       </div>

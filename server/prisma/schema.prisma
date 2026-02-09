@@ -12,7 +12,7 @@ model User {
   name      String
   email     String   @unique
   password  String
-  role      String   @default("USER") // USER, ADMIN
+  role      String   @default("USER") 
   orders    Order[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -24,11 +24,11 @@ model Car {
   slug        String       @unique
   base_price  Float
   description String
-  range       Int          // in miles
-  top_speed   Int          // in mph
-  category    String       @default("Sedan") // Sedan, SUV, Truck, Sports
-  drive_train String       @default("AWD")   // RWD, AWD, Dual Motor
-  acceleration Float       @default(3.1)     // 0-60 mph
+  range       Int         
+  top_speed   Int          
+  category    String       @default("Sedan") 
+  drive_train String       @default("AWD")   
+  acceleration Float       @default(3.1)     
   variants    CarVariant[]
   colors      CarColor[]
   orders      Order[]
@@ -59,7 +59,7 @@ model Order {
   userId           Int
   car              Car      @relation(fields: [carId], references: [id])
   carId            Int
-  status           String   @default("PENDING") // PENDING, CONFIRMED, SHIPPED, DELIVERED
+  status           String   @default("PENDING")
   configurationJson Json
   totalPrice       Float
   createdAt        DateTime @default(now())

@@ -1,15 +1,16 @@
-version: '3.8'
+version: "3.8"
 
 services:
   db:
+    container_name: tesla_postgres
     image: postgres:15
     restart: always
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Password@123
       POSTGRES_DB: tesla_db
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -17,15 +18,22 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - tesla_network
 
   redis:
+    container_name: tesla_redis
     image: redis:6-alpine
     restart: always
     ports:
       - "6379:6379"
+    networks:
+      - tesla_network
 
   backend:
+    container_name: tesla_backend
     build: ./server
+    restart: always
     ports:
       - "5000:5000"
     environment:
@@ -39,17 +47,29 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
-    restart: always
+    networks:
+      - tesla_network
 
   frontend:
-    build: ./client
+    container_name: tesla_frontend
+    build:
+      context: ./client
+      args:
+        VITE_API_URL: http://localhost:5000/api
+    restart: always
     ports:
-      - "5174:5174"
+      - "7000:7000"
     environment:
       VITE_API_URL: http://localhost:5000/api
     depends_on:
       - backend
-    restart: always
+    networks:
+      - tesla_network
 
 volumes:
   postgres_data:
+
+
+networks:
+  tesla_network:
+    driver: bridge

@@ -10,7 +10,11 @@ done
 echo " Database is ready!"
 
 echo " Seeding database..."
-npm run seed
+if npm run seed; then
+  echo " Database seeded successfully!"
+else
+  echo "  Seeding failed, but continuing..."
+fi
 
 echo " Starting server..."
 exec npm start

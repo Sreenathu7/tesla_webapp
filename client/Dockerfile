@@ -8,8 +8,11 @@ RUN npm ci
 
 COPY . .
 
+ARG VITE_API_URL=http://localhost:5000/api
+ENV VITE_API_URL=$VITE_API_URL
+
 RUN npm run build
 
-EXPOSE 5174
+EXPOSE 7000
 
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "5174"]
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "7000"]

@@ -44,32 +44,17 @@ const BuildPricePage = () => {
         (autopilot ? 12000 : 0);
 
     const handleConfirmOrder = async () => {
-        console.log(user);
-        if (!user) {
-            navigate('/login');
-            return;
-        }
-
-        setIsOrdering(true);
-        try {
-            await orderAPI.create({
-                userId: user.id,
-                carId: selectedCar.id,
+        // Navigate to dealer contact page with configuration details
+        navigate('/contact-dealer', {
+            state: {
+                carName: selectedCar.name,
+                variant: selectedVariant.name,
+                color: selectedColor.name,
+                autopilot,
                 totalPrice,
-                configurationJson: {
-                    carName: selectedCar.name,
-                    variant: selectedVariant.name,
-                    color: selectedColor.name,
-                    autopilot
-                }
-            });
-            alert('Mission Confirmed: Your vessel is being constructed.');
-            navigate('/');
-        } catch (error) {
-            alert('Transmission failed. Re-establish uplink and try again.');
-        } finally {
-            setIsOrdering(false);
-        }
+                carId: selectedCar.id
+            }
+        });
     };
 
     if (loading || !selectedCar) {
@@ -84,7 +69,7 @@ const BuildPricePage = () => {
     return (
         <div className="min-h-screen bg-[#050505] flex flex-col lg:flex-row overflow-hidden italic-headings">
 
-            {/* 📸 VISUAL PREVIEW TERMINAL */}
+
             <div className="lg:fixed lg:left-0 lg:top-0 lg:bottom-0 lg:w-[60%] w-full bg-[#080808] flex items-center justify-center p-12 overflow-hidden border-r border-white/5">
                 <div className="absolute top-12 left-12 z-20">
                     <button onClick={() => navigate(-1)} className="flex items-center gap-4 text-white/40 hover:text-tesla-red transition-all group">
@@ -128,13 +113,12 @@ const BuildPricePage = () => {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Big Background Label */}
+
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[30vw] font-black text-white/[0.01] uppercase select-none pointer-events-none italic">
                     {selectedCar.name.split(' ')[1] || selectedCar.name}
                 </div>
             </div>
 
-            {/* ⚙️ CONFIGURATION INTERFACE */}
             <div className="lg:ml-[60%] w-full lg:w-[40%] bg-black p-12 md:p-24 overflow-y-auto custom-scrollbar h-screen">
                 <div className="max-w-md mx-auto">
                     <header className="mb-20">
@@ -161,7 +145,6 @@ const BuildPricePage = () => {
                         </div>
                     </section>
 
-                    {/* Propulsion Logic */}
                     <section className="mb-16">
                         <p className="text-[9px] font-black uppercase tracking-[0.6em] text-white/20 mb-8 border-l-2 border-tesla-red pl-4 italic">Propulsion Logic</p>
                         <div className="space-y-4">
@@ -190,7 +173,6 @@ const BuildPricePage = () => {
                         </div>
                     </section>
 
-                    {/* Chromatic Selection */}
                     <section className="mb-16">
                         <p className="text-[9px] font-black uppercase tracking-[0.6em] text-white/20 mb-8 border-l-2 border-tesla-red pl-4 italic">Chromatic Finish</p>
                         <div className="flex flex-wrap gap-5">
