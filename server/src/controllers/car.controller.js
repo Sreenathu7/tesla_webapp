@@ -1,27 +1,29 @@
+import { BaseController } from './BaseController.js';
 import carService from '../services/car.service.js';
 
-export const getAllCars = async (req, res) => {
-    try {
-        const result = await carService.getAllCars(req.query);
-        console.log(` Retrieved ${result.cars.length} cars`);
-        res.json(result);
-    } catch (error) {
-        console.error(' Get cars error:', error.message);
-        res.status(500).json({ error: error.message });
+class CarController extends BaseController {
+    constructor(service = carService) {
+        super(service);
     }
-};
 
-export const getCarBySlug = async (req, res) => {
-    try {
-        console.log('→ Get car by slug:', req.params.slug);
-        const car = await carService.getCarBySlug(req.params.slug);
+    getAllCars = this.asyncHandler(async (req, res) => {
+        const result = await this.service.getAllCars(req.query);
+        console.log(` retrieved ${result.cars.length} cars`);
+        this.handleSuccess(res, result);
+    });
+
+    getCarBySlug = this.asyncHandler(async (req, res) => {
+
+
+        const car = await this.service.getCarBySlug(req.params.slug);
+
         if (!car) {
-            console.log(' Car not found:', req.params.slug);
-            return res.status(404).json({ error: 'Car not found' });
+
+            return this.handleError(res, new Error('Car not found'), 404);
         }
-   
-        res.json(car);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
+
+        this.handleSuccess(res, car);
+    });
+}
+
+export default new CarController();

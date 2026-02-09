@@ -21,7 +21,7 @@ A full-stack web application for browsing, customizing, and ordering Tesla vehic
 ## ✨ Features
 
 - 🚗 Browse 13 Tesla vehicle models
-- 🎨 Customize vehicles with variants and colors
+-   Customize vehicles with variants and colors
 - 💰 Real-time price calculator
 - 👤 User authentication (register/login)
 - 🛒 Order management system

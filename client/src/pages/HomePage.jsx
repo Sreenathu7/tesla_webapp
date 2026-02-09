@@ -331,7 +331,7 @@ const HomePage = () => {
                 </div>
 
                 {/* Success Popup */}
-                <AnimatePresence>
+                {/* <AnimatePresence>
                     {showSuccessPopup && (
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -371,10 +371,10 @@ const HomePage = () => {
                             </motion.div>
                         </motion.div>
                     )}
-                </AnimatePresence>
+                </AnimatePresence> */}
             </section>
 
-            {/* 🦶 FOOTER */}
+
             <footer className="bg-black pt-40 pb-12 px-6 md:px-24 border-t border-white/5">
                 <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-24 mb-40">
                     <div>

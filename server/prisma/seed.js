@@ -17,7 +17,7 @@ async function main() {
         },
     });
 
-    console.log('✅ Created Admin:', admin.email, '/ admin123');
+    console.log('Created Admin:', admin.email, '/ admin123');
 
     // 2. Create Regular Test User
     const userPassword = await bcrypt.hash('user123', 10);
@@ -32,14 +32,14 @@ async function main() {
         },
     });
 
-    console.log('✅ Created Test User:', testUser.email, '/ user123');
+    console.log(' Created Test User:', testUser.email, '/ user123');
 
     // 3. Clear existing cars
     await prisma.carColor.deleteMany();
     await prisma.carVariant.deleteMany();
     await prisma.car.deleteMany();
 
-    console.log('🗑️  Cleared existing car data');
+    console.log('  Cleared existing car data');
 
     // 4. Create Cars with Authentic Tesla Data
     const cars = [
@@ -189,19 +189,19 @@ async function main() {
                 {
                     name: 'Urban White',
                     price: 0,
-                    imageUrl: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1200&auto=format&fit=crop'
+                    imageUrl: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 },
                 {
                     name: 'City Blue',
                     price: 1500,
-                    imageUrl: 'https://images.unsplash.com/photo-1622219809260-ce0659a4f8f1?q=80&w=1200&auto=format&fit=crop'
+                    imageUrl: 'https://images.unsplash.com/flagged/photo-1579782647395-2e6fb36a64f2?q=80&w=806&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 }
             ]
         },
         {
             name: 'Roadster',
             slug: 'roadster',
-            base_price: 200000,
+            base_price: 600000,
             description: 'An all-electric supercar. 0-60 mph in 1.9s. 250+ mph top speed. 620 mile range.',
             range: 620,
             top_speed: 250,
@@ -222,10 +222,10 @@ async function main() {
         {
             name: 'Roadster-Z',
             slug: 'roadster-z',
-            base_price: 200000,
+            base_price: 900000,
             description: 'An all-electric supercar. 0-60 mph in 1.9s. 250+ mph top speed. 620 mile range.',
-            range: 620,
-            top_speed: 250,
+            range: 820,
+            top_speed: 500,
             category: 'Sports',
             drive_train: 'Tri-Motor AWD',
             acceleration: 1.9,
@@ -273,7 +273,7 @@ async function main() {
             base_price: 69990,
             description: 'Off-road capable electric SUV built for extreme terrain.',
             range: 300,
-            top_speed: 155,
+            top_speed: 255,
             category: 'Off-Road',
             drive_train: 'AWD',
             acceleration: 4.9,

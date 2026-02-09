@@ -96,7 +96,6 @@ const CarDetailsPage = () => {
                     </motion.div>
                 </div>
 
-                {/* Vessel Heading */}
                 <div className="relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -109,7 +108,7 @@ const CarDetailsPage = () => {
                 </div>
             </section>
 
-            {/* 🛠️ TECHNICAL SPECIFICATIONS */}
+
             <section className="py-40 bg-black carbon-texture relative">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-32 items-center">
@@ -161,16 +160,12 @@ const CarDetailsPage = () => {
                                     alt={`${selectedCar.name} - ${activeColor?.name}`}
                                 />
                             </AnimatePresence>
-                            {/* <div className="absolute bottom-12 right-12 p-10 glass rounded-3xl border border-white/10">
-                                <Maximize2 className="text-tesla-red mb-6" />
-                                <h4 className="font-black uppercase italic tracking-tighter">Carbon Core</h4>
-                            </div> */}
                         </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* 🎨 CHROMATIC SELECTION */}
+
             <section className="py-40 bg-[#050505] px-6">
                 <div className="max-w-4xl mx-auto text-center">
                     <h3 className="text-tesla-red font-black tracking-[0.8em] text-[10px] uppercase mb-12 italic">Chromatic Finish</h3>
@@ -216,7 +211,6 @@ const CarDetailsPage = () => {
                 </div>
             </section>
 
-            {/* 🏁 BOTTOM CTA */}
 
 
         </div>

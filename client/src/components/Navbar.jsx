@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, User, LogOut, ChevronRight, Globe, Menu as MenuIcon } from 'lucide-react';
+import { X, User, LogOut, ChevronRight, Globe, Menu as MenuIcon, ArrowLeft } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { logout } from '../store/slices/authSlice';
 
@@ -37,16 +37,31 @@ const Navbar = () => {
                 )}
             >
 
-                <button
-                    onClick={() => setIsModelsOpen(true)}
-                    className="flex items-center gap-6 group"
-                >
-                    <div className="flex flex-col gap-1.5">
-                        <div className="w-10 h-[2px] bg-white group-hover:bg-tesla-red transition-all duration-300"></div>
-                        <div className="w-6 h-[2px] bg-white group-hover:bg-tesla-red transition-all duration-300 group-hover:w-10"></div>
-                    </div>
-                    <span className="uppercase font-black text-[11px] tracking-[0.5em] group-hover:text-tesla-red transition-colors">Menu</span>
-                </button>
+                {/* Back Button - Shows on non-home pages */}
+                <div className="flex items-center gap-4">
+                    {location.pathname !== '/' && (
+                        <button
+                            onClick={() => navigate(-1)}
+                            className="flex items-center gap-2 group"
+                            title="Go back"
+                        >
+                            <ArrowLeft size={20} className="text-white/40 group-hover:text-tesla-red transition-colors" />
+                            <span className="hidden md:block uppercase font-black text-[11px] tracking-[0.3em] text-white/40 group-hover:text-tesla-red transition-colors">Back</span>
+                        </button>
+                    )}
+
+                    {/* Menu Button */}
+                    <button
+                        onClick={() => setIsModelsOpen(true)}
+                        className="flex items-center gap-6 group"
+                    >
+                        <div className="flex flex-col gap-1.5">
+                            <div className="w-10 h-[2px] bg-white group-hover:bg-tesla-red transition-all duration-300"></div>
+                            <div className="w-6 h-[2px] bg-white group-hover:bg-tesla-red transition-all duration-300 group-hover:w-10"></div>
+                        </div>
+                        <span className="uppercase font-black text-[11px] tracking-[0.5em] group-hover:text-tesla-red transition-colors">Menu</span>
+                    </button>
+                </div>
 
                 <Link
                     to="/"
@@ -56,7 +71,6 @@ const Navbar = () => {
                     TESLA
                 </Link>
 
-                {/* Account Actions - Right */}
                 <div className="flex items-center gap-8">
                     {user ? (
                         <div className="flex items-center gap-4 group cursor-pointer" onClick={() => setIsModelsOpen(true)}>
@@ -103,11 +117,9 @@ const Navbar = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 border-t border-white/20">
                                     {[
                                         { name: 'Models', href: '/cars' },
-                                        { name: 'Ownership', href: '#' },
-                                        { name: 'Beyond', href: '#' },
+                                        { name: 'Contact', href: '/contact' },
+                                        { name: 'About', href: '#' },
                                         { name: 'Company', href: '#' },
-                                        { name: 'Museum', href: '#' },
-                                        { name: 'Store', href: '#' },
                                         { name: 'Dealerships', href: '#' },
                                         { name: 'Motorsport', href: '#' },
                                         { name: 'News', href: '#' }

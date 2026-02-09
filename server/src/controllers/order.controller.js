@@ -1,36 +1,27 @@
+import { BaseController } from './BaseController.js';
 import orderService from '../services/order.service.js';
 
-export const createOrder = async (req, res) => {
-    try {
-        console.log('📨 Received order request:', req.body);
+class OrderController extends BaseController {
+    constructor(service = orderService) {
+        super(service);
+    }
+
+    createOrder = this.asyncHandler(async (req, res) => {
         console.log('Request headers:', req.headers);
-        const order = await orderService.createOrder(req.body);
-        console.log('✅ Order created successfully, ID:', order.id);
-        res.status(201).json(order);
-    } catch (error) {
-        console.error('❌ Error creating order:', error.message);
-        console.error('Error stack:', error.stack);
-        res.status(500).json({ error: error.message });
-    }
-};
+        const order = await this.service.createOrder(req.body);
+        this.handleSuccess(res, order, 201);
+    });
 
-export const getUserOrders = async (req, res) => {
-    try {
+    getUserOrders = this.asyncHandler(async (req, res) => {
+        const orders = await this.service.getUserOrders(req.params.userId);
+        this.handleSuccess(res, orders);
+    });
 
-        const orders = await orderService.getUserOrders(req.params.userId);
-        console.log(` Retrieved ${orders.length} orders`);
-        res.json(orders);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
-export const getAllOrders = async (req, res) => {
-    try {
-        const orders = await orderService.getAllOrders();
+    getAllOrders = this.asyncHandler(async (req, res) => {
+        const orders = await this.service.getAllOrders();
         console.log(`Retrieved ${orders.length} orders`);
-        res.json(orders);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
+        this.handleSuccess(res, orders);
+    });
+}
+
+export default new OrderController();

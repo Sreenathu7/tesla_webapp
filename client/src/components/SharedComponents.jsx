@@ -3,9 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Instagram, Youtube, Facebook, Linkedin } from 'lucide-react';
 
-// ==========================================
-// ANIMATION VARIANTS
-// ==========================================
 
 export const animations = {
     fadeIn: {
@@ -127,9 +124,7 @@ export const SocialLinks = ({
     return null;
 };
 
-// ==========================================
-// SECTION HEADING COMPONENT
-// ==========================================
+
 
 export const SectionHeading = ({
     label,
@@ -169,9 +164,9 @@ export const SectionHeading = ({
     );
 };
 
-// ==========================================
+
 // TESLA BUTTON COMPONENT
-// ==========================================
+
 
 export const TeslaButton = ({
     variant = 'primary',
@@ -219,9 +214,9 @@ export const TeslaButton = ({
     );
 };
 
-// ==========================================
+
 // GLASS CARD COMPONENT
-// ==========================================
+
 
 export const GlassCard = ({
     children,

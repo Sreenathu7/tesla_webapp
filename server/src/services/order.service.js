@@ -1,6 +1,11 @@
-import prisma from '../prisma.js';
+import { BaseService } from './BaseService.js';
+import { OrderRepository } from '../repositories/OrderRepository.js';
 
-class OrderService {
+class OrderService extends BaseService {
+    constructor(repository = new OrderRepository()) {
+        super(repository);
+    }
+
     async createOrder(orderData) {
         console.log('🔍 OrderService.createOrder called with:', orderData);
         const { userId, carId, configurationJson, totalPrice } = orderData;
@@ -13,52 +18,41 @@ class OrderService {
             if (!carId) missing.push('carId');
             if (!totalPrice) missing.push('totalPrice');
             if (!configurationJson) missing.push('configurationJson');
+
             const error = `Missing required fields: ${missing.join(', ')}`;
-            console.error('❌', error);
+            console.error('', error);
             throw new Error(error);
         }
 
-        console.log('✅ All required fields present');
-        console.log('💾 Creating order in database...');
+        console.log('All required fields present');
+        console.log(' Creating order in database...');
 
         try {
-            const order = await prisma.order.create({
-                data: {
-                    userId,
-                    carId,
-                    configurationJson,
-                    totalPrice,
-                    status: 'PENDING'
-                },
-                include: {
-                    car: true,
-                    user: true
-                }
+            const order = await this.repository.createOrder({
+                userId,
+                carId,
+                configurationJson,
+                totalPrice,
+                status: 'PENDING'
             });
-            console.log(`✅ Order created: ID=${order.id}, Car=${order.car.name}, User=${order.user.email}, Total=$${order.totalPrice}`);
+
+            console.log(`Order created: ID=${order.id}, Car=${order.car.name}, User=${order.user.email}, Total=$${order.totalPrice}`);
             return order;
         } catch (dbError) {
-            console.error('❌ Database error:', dbError);
+            console.error(' Database error:', dbError);
             throw dbError;
         }
     }
 
     async getUserOrders(userId) {
-        const orders = await prisma.order.findMany({
-            where: { userId: parseInt(userId) },
-            orderBy: { createdAt: 'desc' },
-            include: { car: true, user: true }
-        });
-        console.log(`📦 Found ${orders.length} orders for user ${userId}`);
+        const orders = await this.repository.findByUserId(userId);
+        console.log(` Found ${orders.length} orders for user ${userId}`);
         return orders;
     }
 
     async getAllOrders() {
-        const orders = await prisma.order.findMany({
-            orderBy: { createdAt: 'desc' },
-            include: { car: true, user: true }
-        });
-        console.log(`📦 Found ${orders.length} total orders`);
+        const orders = await this.repository.findAllOrders();
+        console.log(` Found ${orders.length} total orders`);
         return orders;
     }
 }
