@@ -3,8 +3,9 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom';
 import {
     ChevronDown, Zap, Shield, Globe, Cpu, Gauge, Wind, Battery,
-    ArrowRight, Play, Maximize2, MoveRight, Mail, Instagram, Twitter, Youtube, Facebook, Smartphone, MapPin, Wifi, Star
+    ArrowRight, Play, Maximize2, MoveRight, Mail, Smartphone, MapPin, Wifi, Star
 } from 'lucide-react';
+import { SocialLinks } from '../components/SharedComponents';
 
 // Count-up component for performance stats
 const Counter = ({ value, label, prefix = "", suffix = "" }) => {
@@ -206,7 +207,7 @@ const HomePage = () => {
                 </div>
             </section> */}
 
-            {/* ⚡ FEATURES SECTION */}
+
             <section className="py-32 bg-black carbon-texture">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-24">
@@ -321,22 +322,12 @@ const HomePage = () => {
                     </Link>
 
                     {/* Social Media Links - Minimal */}
-                    <div className="flex justify-center gap-8 mt-16 pt-12 border-t border-white/10">
-                        <a href="https://www.instagram.com/teslamotors/" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-tesla-red transition-colors">
-                            <Instagram size={22} />
-                        </a>
-                        <a href="https://twitter.com/Tesla" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-tesla-red transition-colors">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                            </svg>
-                        </a>
-                        <a href="https://www.youtube.com/@Tesla" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-tesla-red transition-colors">
-                            <Youtube size={22} />
-                        </a>
-                        <a href="https://www.facebook.com/tesla" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-tesla-red transition-colors">
-                            <Facebook size={22} />
-                        </a>
-                    </div>
+                    <SocialLinks
+                        variant="minimal"
+                        size={22}
+                        gap={8}
+                        className="mt-16 pt-12 border-t border-white/10"
+                    />
                 </div>
 
                 {/* Success Popup */}

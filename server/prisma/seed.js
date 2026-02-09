@@ -104,11 +104,11 @@ async function main() {
                 { name: 'Plaid', price: 15000 }
             ],
             colors: [
-                { name: 'Pearl White Multi-Coat', price: 0, imageUrl: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-X-Main-Hero-Desktop-LHD.png' },
-                { name: 'Solid Black', price: 1500, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT336,$PPSB,$W41B,$IBE00&view=STUD_3QTR&model=mx&size=1920&bkba_opt=2&crop=0,0,0,0&' },
-                { name: 'Midnight Silver Metallic', price: 1500, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT337,$PMNG,$W41B,$IBE00&view=STUD_3QTR&model=mx&size=1920&bkba_opt=2&crop=0,0,0,0&' },
-                { name: 'Deep Blue Metallic', price: 1500, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT338,$PPSB,$W41B,$IBE00&view=STUD_3QTR&model=mx&size=1920&bkba_opt=2&crop=0,0,0,0&' },
-                { name: 'Ultra Red', price: 2500, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT340,$PPSB,$W41B,$IBE00&view=STUD_3QTR&model=mx&size=1920&bkba_opt=2&crop=0,0,0,0&' }
+                { name: 'Pearl White Multi-Coat', price: 0, imageUrl: 'https://images.unsplash.com/photo-1587304878169-505d63fd6b0c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Solid Black', price: 1500, imageUrl: 'https://images.unsplash.com/photo-1652508996643-2fc140eebe1d?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Midnight Silver Metallic', price: 1500, imageUrl: 'https://images.unsplash.com/photo-1587304878428-1b533030e0e7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Deep Blue Metallic', price: 1500, imageUrl: 'https://images.unsplash.com/photo-1652509197980-9f3d9ac7916e?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Ultra Red', price: 2500, imageUrl: 'https://images.unsplash.com/photo-1683743408642-868e5a595487?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
             ]
         },
         {
@@ -127,12 +127,12 @@ async function main() {
                 { name: 'Performance', price: 8500 }
             ],
             colors: [
-                { name: 'Pearl White Multi-Coat', price: 0, imageUrl: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-Main-Hero-Desktop-Global.png' },
-                { name: 'Solid Black', price: 1500, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT336,$PPSB,$W40B,$IBE00&view=STUD_3QTR&model=my&size=1920&bkba_opt=2&crop=0,0,0,0&' },
-                { name: 'Midnight Silver Metallic', price: 1500, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT337,$PMNG,$W40B,$IBE00&view=STUD_3QTR&model=my&size=1920&bkba_opt=2&crop=0,0,0,0&' },
+                { name: 'Pearl White Multi-Coat', price: 0, imageUrl: 'https://images.unsplash.com/photo-1561580125-028ee3bd62eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Solid Black', price: 1500, imageUrl: 'https://images.unsplash.com/photo-1740170629510-c145511c59a1?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Midnight Silver Metallic', price: 1500, imageUrl: 'https://images.unsplash.com/photo-1740170629572-74d337e0e856?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
                 { name: 'Deep Blue Metallic', price: 1500, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT338,$PPSB,$W40B,$IBE00&view=STUD_3QTR&model=my&size=1920&bkba_opt=2&crop=0,0,0,0&' },
-                { name: 'Ultra Red', price: 2000, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT340,$PPSB,$W40B,$IBE00&view=STUD_3QTR&model=my&size=1920&bkba_opt=2&crop=0,0,0,0&' },
-                { name: 'Quicksilver', price: 2000, imageUrl: 'https://static-assets.tesla.com/configurator/compositor?&options=$MT342,$PPSB,$W40B,$IBE00&view=STUD_3QTR&model=my&size=1920&bkba_opt=2&crop=0,0,0,0&' }
+                { name: 'Ultra Red', price: 2000, imageUrl: 'https://images.unsplash.com/photo-1741874807321-6f470a1f5fbd?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Quicksilver', price: 2000, imageUrl: 'https://images.unsplash.com/photo-1740170512958-1474c89c82ef?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
             ]
         },
         {
@@ -151,7 +151,51 @@ async function main() {
                 { name: 'Cyberbeast', price: 39000 }
             ],
             colors: [
-                { name: 'Stainless Steel', price: 0, imageUrl: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Cybertruck-Main-Hero-Desktop-NA.png' }
+                { name: 'Stainless Steel', price: 0, imageUrl: 'https://images.unsplash.com/photo-1705771801928-4fceafdd6e55?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                {
+                    name: 'Satin Crimson gold',
+                    price: 650,
+                    imageUrl: 'https://images.unsplash.com/photo-1716304960614-67625112f271?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                },
+                {
+                    name: 'Iridescent Purple',
+                    price: 650,
+                    imageUrl: 'https://images.unsplash.com/photo-1715620036578-152bc0820b41?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                },
+
+                {
+                    name: 'Satin Dark Grey',
+                    price: 650,
+                    imageUrl: 'https://images.unsplash.com/photo-1727994527246-68e26082d0fd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                },
+
+            ]
+        },
+        {
+            name: 'Model A',
+            slug: 'model-a',
+            base_price: 29990,
+            description: 'Compact electric hatchback designed for urban mobility and efficiency.',
+            range: 280,
+            top_speed: 145,
+            category: 'Hatchback',
+            drive_train: 'RWD',
+            acceleration: 6.8,
+            variants: [
+                { name: 'Standard', price: 0 },
+                { name: 'Long Range', price: 6000 }
+            ],
+            colors: [
+                {
+                    name: 'Urban White',
+                    price: 0,
+                    imageUrl: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1200&auto=format&fit=crop'
+                },
+                {
+                    name: 'City Blue',
+                    price: 1500,
+                    imageUrl: 'https://images.unsplash.com/photo-1622219809260-ce0659a4f8f1?q=80&w=1200&auto=format&fit=crop'
+                }
             ]
         },
         {
@@ -169,9 +213,112 @@ async function main() {
                 { name: 'Founders Series', price: 50000 }
             ],
             colors: [
-                { name: 'Signature Red', price: 0, imageUrl: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Roadster-Desktop.png' },
-                { name: 'Midnight Black', price: 5000, imageUrl: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Roadster-Desktop.png' },
-                { name: 'Ceramic White', price: 5000, imageUrl: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Roadster-Desktop.png' }
+                { name: 'Signature Red', price: 0, imageUrl: 'https://images.unsplash.com/photo-1622315543232-29dd4b68af3f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Midnight Black', price: 5000, imageUrl: 'https://plus.unsplash.com/premium_photo-1737623479045-a6a27357ffa9?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Ceramic White', price: 5000, imageUrl: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Ceramic green', price: 5000, imageUrl: 'https://plus.unsplash.com/premium_photo-1737677106508-91f7f4e1468e?q=80&w=767&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
+            ]
+        },
+        {
+            name: 'Roadster-Z',
+            slug: 'roadster-z',
+            base_price: 200000,
+            description: 'An all-electric supercar. 0-60 mph in 1.9s. 250+ mph top speed. 620 mile range.',
+            range: 620,
+            top_speed: 250,
+            category: 'Sports',
+            drive_train: 'Tri-Motor AWD',
+            acceleration: 1.9,
+            variants: [
+                { name: 'Base Reservation', price: 0 },
+                { name: 'Founders Series', price: 50000 }
+            ],
+            colors: [
+                { name: 'Signature Red', price: 0, imageUrl: 'https://images.unsplash.com/photo-1622315543232-29dd4b68af3f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Midnight Black', price: 5000, imageUrl: 'https://plus.unsplash.com/premium_photo-1737623479045-a6a27357ffa9?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Ceramic White', price: 5000, imageUrl: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { name: 'Ceramic green', price: 5000, imageUrl: 'https://plus.unsplash.com/premium_photo-1737677106508-91f7f4e1468e?q=80&w=767&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
+            ]
+        },
+        {
+            name: 'Model Z',
+            slug: 'model-z',
+            base_price: 89990,
+            description: 'High-performance electric coupe with futuristic styling.',
+            range: 380,
+            top_speed: 190,
+            category: 'Coupe',
+            drive_train: 'AWD',
+            acceleration: 3.4,
+            variants: [
+                { name: 'Performance', price: 0 },
+                { name: 'Plaid', price: 30000 }
+            ],
+            colors: [
+                {
+                    name: 'Obsidian Black',
+                    price: 0,
+                    imageUrl: 'https://images.unsplash.com/photo-1575733135961-39fb82b34f86?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                },
+                {
+                    name: 'Crimson Red',
+                    price: 2500,
+                    imageUrl: 'https://images.unsplash.com/photo-1554744512-d6c603f27c54?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                }
+            ]
+        },
+        {
+            name: 'Model R',
+            slug: 'model-r',
+            base_price: 69990,
+            description: 'Off-road capable electric SUV built for extreme terrain.',
+            range: 300,
+            top_speed: 155,
+            category: 'Off-Road',
+            drive_train: 'AWD',
+            acceleration: 4.9,
+            variants: [
+                { name: 'Adventure', price: 0 },
+                { name: 'Extreme', price: 15000 }
+            ],
+            colors: [
+                {
+                    name: 'Desert Sand',
+                    price: 0,
+                    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop'
+                },
+                {
+                    name: 'Forest Green',
+                    price: 2000,
+                    imageUrl: 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1200&auto=format&fit=crop'
+                }
+            ]
+        },
+        {
+            name: 'Model L',
+            slug: 'model-l',
+            base_price: 119990,
+            description: 'Ultra-luxury electric sedan focused on rear-seat comfort.',
+            range: 420,
+            top_speed: 170,
+            category: 'Luxury Sedan',
+            drive_train: 'AWD',
+            acceleration: 3.9,
+            variants: [
+                { name: 'Executive', price: 0 },
+                { name: 'Executive Plus', price: 20000 }
+            ],
+            colors: [
+                {
+                    name: 'Champagne Gold',
+                    price: 0,
+                    imageUrl: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop'
+                },
+                {
+                    name: 'Royal Blue',
+                    price: 3000,
+                    imageUrl: 'https://images.unsplash.com/photo-1624969862293-b7496590c7dd?q=80&w=1200&auto=format&fit=crop'
+                }
             ]
         }
     ];
@@ -189,18 +336,18 @@ async function main() {
                 }
             }
         });
-        console.log(`✅ Created car: ${car.name} with ${variants.length} variants and ${colors.length} colors`);
+        console.log(` Created car: ${car.name} with ${variants.length} variants and ${colors.length} colors`);
     }
 
-    console.log('\n🎉 Database seeded successfully!');
-    console.log(`📊 Total cars: ${cars.length}`);
-    console.log('👤 Admin: admin@tesla.com / admin123');
-    console.log('👤 User: user@test.com / user123');
+    console.log('\n Database seeded successfully!');
+    console.log(` Total cars: ${cars.length}`);
+    console.log(' Admin: admin@tesla.com / admin123');
+    console.log(' User: user@test.com / user123');
 }
 
 main()
     .catch((e) => {
-        console.error('❌ Error seeding database:', e);
+        console.error('Error seeding database:', e);
         process.exit(1);
     })
     .finally(async () => {

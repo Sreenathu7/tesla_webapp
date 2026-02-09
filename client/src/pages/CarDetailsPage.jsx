@@ -120,7 +120,7 @@ const CarDetailsPage = () => {
                             transition={{ duration: 1 }}
                         >
                             <span className="text-tesla-red font-black uppercase tracking-[0.6em] text-[10px] block mb-10 italic">Engineering Data</span>
-                            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.85] mb-12 italic">Precision <br />Propulsion.</h2>
+                            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.85] mb-12 italic">Precision <br />Propulsion</h2>
                             <p className="text-white/40 text-lg leading-relaxed mb-16 font-light tracking-wide border-l-4 border-tesla-red pl-10 italic">
                                 {selectedCar.description}
                             </p>
@@ -149,11 +149,22 @@ const CarDetailsPage = () => {
                             className="relative group"
                         >
                             <div className="absolute -inset-4 border border-tesla-red/20 rounded-[3rem] group-hover:inset-0 transition-all duration-1000" />
-                            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2070" className="w-full aspect-square object-cover rounded-[2.5rem] brightness-75 group-hover:brightness-100 transition-all duration-1000 grayscale group-hover:grayscale-0" alt="Detail" />
-                            <div className="absolute bottom-12 right-12 p-10 glass rounded-3xl border border-white/10">
+                            <AnimatePresence mode="wait">
+                                <motion.img
+                                    key={activeColor?.id}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                    src={activeColor?.imageUrl}
+                                    className="w-full aspect-square object-cover rounded-[2.5rem] brightness-75 group-hover:brightness-100 transition-all duration-1000 grayscale group-hover:grayscale-0"
+                                    alt={`${selectedCar.name} - ${activeColor?.name}`}
+                                />
+                            </AnimatePresence>
+                            {/* <div className="absolute bottom-12 right-12 p-10 glass rounded-3xl border border-white/10">
                                 <Maximize2 className="text-tesla-red mb-6" />
                                 <h4 className="font-black uppercase italic tracking-tighter">Carbon Core</h4>
-                            </div>
+                            </div> */}
                         </motion.div>
                     </div>
                 </div>
