@@ -46,7 +46,7 @@ const CarDetailsPage = () => {
     return (
         <div className="bg-[#050505] text-white selection:bg-tesla-red selection:text-white overflow-hidden">
 
-            {/* 🏁 CINEMATIC HERO */}
+
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <AnimatePresence mode="wait">
@@ -61,13 +61,13 @@ const CarDetailsPage = () => {
                             className="w-full h-full object-cover grayscale-[0.3] brightness-[0.6]"
                         />
                     </AnimatePresence>
-                    {/* Lambo Dramatic Gradient */}
+
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent" />
                     <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/80 to-transparent" />
                 </div>
 
                 {/* Performance HUD Bar */}
-                <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-20 w-full max-w-6xl px-6">
+                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 w-full max-w-6xl px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -98,14 +98,6 @@ const CarDetailsPage = () => {
 
                 {/* Vessel Heading */}
                 <div className="relative z-10 text-center">
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.4 }}
-                        transition={{ duration: 1.5 }}
-                        className="text-[10vw] font-black uppercase tracking-tighter text-white select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap opacity-[0.03] italic"
-                    >
-                        {selectedCar.name}
-                    </motion.p>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -214,20 +206,7 @@ const CarDetailsPage = () => {
             </section>
 
             {/* 🏁 BOTTOM CTA */}
-            <section className="py-60 bg-black relative flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                <div className="text-center relative z-10 scale-150 md:scale-100">
-                    <h2 className="text-7xl md:text-[12vw] font-black uppercase tracking-tighter opacity-10 mb-[-1rem] md:mb-[-4rem]">Configure</h2>
-                    <Link to="/build" className="group flex items-center gap-12 text-3xl md:text-6xl font-black uppercase italic tracking-tighter hover:text-tesla-red transition-all">
-                        Build Your Order <MoveRight size={64} className="group-hover:translate-x-8 transition-transform" />
-                    </Link>
-                    <h2 className="text-7xl md:text-[12vw] font-black uppercase tracking-tighter opacity-10 mt-[-1rem] md:mt-[-4rem] text-right">Online</h2>
-                </div>
-                {/* Big background text */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-black text-white/[0.01] uppercase select-none pointer-events-none italic">
-                    PLAID
-                </div>
-            </section>
+
 
         </div>
     );

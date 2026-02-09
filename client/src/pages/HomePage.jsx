@@ -60,13 +60,13 @@ const HomePage = () => {
     // Reliable background videos
     const backgroundVideos = [
         "https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto/Model-3-Main-Hero-Video-Desktop-NA.mp4",
-        "https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto/Model-Y-Main-Hero-Video-Desktop-NA.mp4"
+        "https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto/Model-3-Main-Hero-Video-Desktop-NA.mp4"
     ];
 
     useEffect(() => {
         const interval = setInterval(() => {
             setVideoIndex((prev) => (prev + 1) % backgroundVideos.length);
-        }, 3000);
+        }, 20000);
         return () => clearInterval(interval);
     }, []);
 
@@ -153,7 +153,7 @@ const HomePage = () => {
                         transition={{ delay: 0.8, duration: 0.8 }}
                         className="flex flex-col sm:flex-row gap-8 justify-center"
                     >
-                        <Link to="/cars" className="btn-tesla-primary">
+                        <Link to="/cars" className="px-16 py-5 border border-white/20 text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-white hover:text-black transition-all backdrop-blur-md">
                             Explore Models
                         </Link>
                         <Link to="/build" className="px-16 py-5 border border-white/20 text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-white hover:text-black transition-all backdrop-blur-md">
@@ -172,7 +172,7 @@ const HomePage = () => {
                 </motion.div>
             </section>
 
-            <section id="models" className="py-40 px-6 md:px-24">
+            {/* <section id="models" className="py-40 px-6 md:px-24">
                 <div className="max-w-7xl mx-auto">
                     <motion.div {...slideUp} className="mb-24 text-center">
                         <span className="text-tesla-red font-bold uppercase tracking-[0.6em] text-[10px] mb-4 block italic">The Collection</span>
@@ -204,56 +204,72 @@ const HomePage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* ⚡ FEATURES SECTION */}
-            <section className="py-40 bg-black carbon-texture">
-                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-16 text-center">
-                    {[
-                        { icon: <Cpu />, title: "Autopilot AI", desc: "Advanced AI driving systems for safety and convenience." },
-                        { icon: <Wifi />, title: "Digital Sync", desc: "Continuous improvements through over-the-air updates." },
-                        { icon: <Star />, title: "Evolved Interior", desc: "A minimalist workspace built around the driver." },
-                        { icon: <Zap />, title: "Energy Grid", desc: "Access the world's most reliable charging network." }
-                    ].map((feature, i) => (
-                        <motion.div key={i} {...slideUp} transition={{ delay: i * 0.1 }}>
-                            <div className="w-16 h-16 mx-auto bg-tesla-red/10 border border-tesla-red/20 rounded-2xl flex items-center justify-center text-tesla-red mb-10">
-                                {feature.icon}
-                            </div>
-                            <h4 className="text-xl font-bold uppercase tracking-tighter mb-4">{feature.title}</h4>
-                            <p className="text-white/30 text-sm leading-relaxed font-light">{feature.desc}</p>
-                        </motion.div>
-                    ))}
+            <section className="py-32 bg-black carbon-texture">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center mb-24">
+                        <h2 className="text-tesla-red font-bold uppercase tracking-[0.6em] text-[10px] mb-6">Features</h2>
+                        <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none italic">Built For<br /><span className="text-tesla-red">The Future</span></h3>
+                    </div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 text-center">
+                        {[
+                            { icon: <Cpu />, title: "Autopilot AI", desc: "Advanced AI driving systems for safety and convenience." },
+                            { icon: <Wifi />, title: "Digital Sync", desc: "Continuous improvements through over-the-air updates." },
+                            { icon: <Star />, title: "Evolved Interior", desc: "A minimalist workspace built around the driver." },
+                            { icon: <Zap />, title: "Energy Grid", desc: "Access the world's most reliable charging network." }
+                        ].map((feature, i) => (
+                            <motion.div key={i} {...slideUp} transition={{ delay: i * 0.1 }}>
+                                <div className="w-16 h-16 mx-auto bg-tesla-red/10 border border-tesla-red/20 rounded-2xl flex items-center justify-center text-tesla-red mb-10">
+                                    {feature.icon}
+                                </div>
+                                <h4 className="text-xl font-bold uppercase tracking-tighter mb-4">{feature.title}</h4>
+                                <p className="text-white/30 text-sm leading-relaxed font-light">{feature.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
+
             {/* 🏁 PERFORMANCE SECTION */}
-            <section className="py-40 bg-black overflow-hidden px-6 md:px-24">
-                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24">
-                    <motion.div {...slideUp} className="flex-1">
-                        <h2 className="text-tesla-red font-bold uppercase tracking-[0.6em] text-[10px] mb-8">Engineering</h2>
-                        <h3 className="text-7xl md:text-[10vw] font-black uppercase tracking-tighter leading-none italic mb-20">
-                            1020 <br />
-                            <span className="text-tesla-red">PLAID</span>
-                        </h3>
-                        <div className="grid grid-cols-2 gap-16">
-                            <Counter value="2.1" label="0-100 km/h" suffix="s" />
-                            <Counter value="1020" label="Peak Power" suffix="HP" />
-                            <Counter value="396" label="Range" suffix="mi" />
-                            <Counter value="322" label="Top Speed" suffix="km/h" />
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, x: 100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.5 }}
-                        className="flex-1 relative"
-                    >
-                        <img src="https://images.unsplash.com/photo-1617788138017-80ad42243c59?q=80&w=2070" className="rounded-[4rem] shadow-2xl brightness-75 border border-white/10" />
-                        <div className="absolute inset-0 bg-gradient-to-tr from-tesla-red/20 via-transparent to-transparent rounded-[4rem]" />
-                    </motion.div>
+            <section className="relative py-40 bg-black overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 md:px-24">
+                    <div className="relative rounded-[4rem] overflow-hidden border border-white/10 min-h-[700px] flex items-center">
+                        {/* Background Image */}
+                        <motion.div
+                            initial={{ scale: 1.1 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.5 }}
+                            className="absolute inset-0"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1536700503339-1e4b06520771?q=80&w=2070&auto=format&fit=crop"
+                                alt="Tesla Performance"
+                                className="w-full h-full object-cover brightness-75"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
+                        </motion.div>
+
+                        {/* Content Overlay */}
+                        <motion.div {...slideUp} className="relative z-10 p-12 md:p-20 max-w-3xl">
+                            <h3 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none italic mb-24">
+                                Peak<br />
+                                <span className="text-tesla-red">Performance</span>
+                            </h3>
+                            <div className="grid grid-cols-2 gap-x-16 gap-y-24">
+                                <Counter value="2.1" label="0-100 km/h" suffix="s" />
+                                <Counter value="1020" label="Peak Power" suffix="HP" />
+                                <Counter value="396" label="Range" suffix="mi" />
+                                <Counter value="322" label="Top Speed" suffix="km/h" />
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
+
 
 
             <section className="py-40 bg-[#0a0a0a] px-6 lg:px-24">
@@ -276,10 +292,10 @@ const HomePage = () => {
             </section>
 
             {/* 🧪 TESLA EXPERIENCE SECTION */}
-            <section className="py-40 bg-black px-6 md:px-24 relative overflow-hidden">
-                <div className="text-center mb-32 relative z-10">
-                    <h2 className="text-[10vw] font-black uppercase text-white/[0.03] tracking-tight absolute -bottom-12 left-1/2 -translate-x-1/2 select-none leading-none">Experience</h2>
-                    <h3 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none italic z-10 relative">The Ecosystem</h3>
+            <section className="py-32 bg-black px-6 md:px-24 relative overflow-hidden">
+                <div className="text-center mb-24 relative z-10">
+                    <h2 className="text-tesla-red font-bold uppercase tracking-[0.6em] text-[10px] mb-6">Experience</h2>
+                    <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none italic z-10 relative">Tesla<br /><span className="text-tesla-red">Ecosystem</span></h3>
                 </div>
                 <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto relative z-10">
                     {[
@@ -296,41 +312,29 @@ const HomePage = () => {
                 </div>
             </section>
 
-            {/* 📬 CONTACT / NEWSLETTER SECTION */}
-            <section className="py-40 bg-white text-black px-6 relative">
+            <section className="py-32 bg-black text-white px-6 relative">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h3 className="text-5xl md:text-[8vw] font-black uppercase tracking-tighter leading-[0.85] italic mb-12">Stay <br />Locked In</h3>
-                    <p className="text-neutral-500 text-lg mb-16 font-light tracking-wide max-w-xl mx-auto">Get the latest performance data and fleet releases delivered to your terminal</p>
-                    <form className="flex flex-col sm:flex-row gap-4 mb-4" onSubmit={handleEmailSubmit}>
-                        <input
-                            type="email"
-                            placeholder="Terminal Address (Email)"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="flex-1 px-10 py-6 bg-neutral-100 rounded-full text-black outline-none focus:ring-2 focus:ring-tesla-red transition-all font-medium uppercase text-xs tracking-widest"
-                        />
-                        <button type="submit" className="px-16 py-6 bg-black text-white rounded-full font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-neutral-800 transition-all">
-                            Submit
-                        </button>
-                    </form>
-                    {emailError && (
-                        <p className="text-red-600 text-sm mb-16">{emailError}</p>
-                    )}
-                    {!emailError && <div className="mb-16"></div>}
-                    <div className="flex justify-center gap-16 border-t border-neutral-100 pt-20">
-                        <a href="https://www.instagram.com/teslamotors/" target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-tesla-red transition-all duration-300">
-                            <Instagram size={24} />
+                    <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none italic mb-8">Get In<br /><span className="text-tesla-red">Touch</span></h3>
+                    <p className="text-white/40 text-base mb-12 font-light tracking-wide max-w-xl mx-auto">Have questions? Our team is here to help you</p>
+                    <Link to="/contact" className="inline-block px-16 py-5 bg-tesla-red hover:bg-tesla-red/80 text-white font-bold uppercase tracking-[0.3em] text-[11px] rounded-full transition-all">
+                        Contact Us
+                    </Link>
+
+                    {/* Social Media Links - Minimal */}
+                    <div className="flex justify-center gap-8 mt-16 pt-12 border-t border-white/10">
+                        <a href="https://www.instagram.com/teslamotors/" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-tesla-red transition-colors">
+                            <Instagram size={22} />
                         </a>
-                        <a href="https://twitter.com/Tesla" target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-tesla-red transition-all duration-300" title="X (Twitter)">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <a href="https://twitter.com/Tesla" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-tesla-red transition-colors">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                             </svg>
                         </a>
-                        <a href="https://www.youtube.com/@Tesla" target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-tesla-red transition-all duration-300">
-                            <Youtube size={24} />
+                        <a href="https://www.youtube.com/@Tesla" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-tesla-red transition-colors">
+                            <Youtube size={22} />
                         </a>
-                        <a href="https://www.facebook.com/tesla" target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-tesla-red transition-all duration-300">
-                            <Facebook size={24} />
+                        <a href="https://www.facebook.com/tesla" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-tesla-red transition-colors">
+                            <Facebook size={22} />
                         </a>
                     </div>
                 </div>

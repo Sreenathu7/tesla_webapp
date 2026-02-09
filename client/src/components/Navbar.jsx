@@ -50,9 +50,10 @@ const Navbar = () => {
 
                 <Link
                     to="/"
-                    className="absolute left-1/2 -translate-x-1/2 text-2xl md:text-4xl font-black tracking-[-0.1em] text-white uppercase"
+                    className="absolute left-1/2 -translate-x-1/2 text-3xl md:text-4xl font-extrabold tracking-[0.15em] text-white uppercase"
+                    style={{ fontFamily: '"Gotham", system-ui, -apple-system, sans-serif' }}
                 >
-                    Tesla<span className="text-tesla-red">.</span>
+                    TESLA
                 </Link>
 
                 {/* Account Actions - Right */}
